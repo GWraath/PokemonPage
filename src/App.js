@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+
 import './App.css';
+import PokeWelcome from './PokeWelcome';
+import PokeDescription from './PokeDescription';
+import Navbar from './PokeNavBar';
+import PokeBuilder from './PokeBuilder';
+import {Routes,Route} from 'react-router-dom';
+import { PageNotFound } from './PokePageNotFound';
+import { PokeNum } from './PokeNum.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar/>
+        <Routes>
+            <Route path='/' element={<PokeWelcome />}/>
+            <Route path='builder' element={<PokeBuilder />}/>
+            <Route path='description' element={<PokeDescription/>}>
+              <Route path=':pokenum' element={<PokeNum/>}/>
+            </Route>
+            {/* <Route path='profile' element={<Profile/>}/> */}
+            <Route path='*' element={<PageNotFound/>}/>
+        </Routes>
     </div>
   );
 }
+
+
 
 export default App;

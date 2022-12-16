@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+a {
+  color: white;
+  margin-left: 32px;
+}
+
+.capitalise {
+  text-transform: capitalize;
+}
+
+.AppBar {
+  background-color: red;
+}
